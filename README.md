@@ -55,16 +55,7 @@ This Django project manages articles and knowledge bases, incorporating advanced
    python manage.py runserver
    ```
 
-### Setting Up Celery
-1. **Start Redis Server:**
-   ```bash
-   redis-server
-   ```
 
-2. **Run Celery Worker:**
-   ```bash
-   celery -A <project_name> worker --loglevel=info
-   ```
 
 ### Usage
 - Access the application at `http://127.0.0.1:8000/`.
