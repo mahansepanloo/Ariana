@@ -12,7 +12,7 @@ This Django project manages articles and knowledge bases, incorporating advanced
 - **Django:** Web framework for building the application.
 - **Celery:** Task queue for handling asynchronous operations.
 - **OpenAI API:** For summarizing article descriptions.
-- **Redis:** Message broker for Celery.
+- **rabbitmql:** Message broker for Celery.
 
 ## Setup Instructions
 
