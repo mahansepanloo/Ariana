@@ -9,7 +9,7 @@ from rest_framework.response import Response
 
 class KnowledgeViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
-    queryset = Knowledge.objects.all()
+    queryset = Knowledge.objects.prefetch_related('articles').all()
     serializer_class = KnowledgeCreateSerializer
     filter_backends = [
         DjangoFilterBackend,
@@ -29,8 +29,8 @@ class KnowledgeViewSet(ModelViewSet):
     
     def get_queryset(self):
         if self.request.user.is_staff:
-            return Knowledge.objects.all()
-        return Knowledge.objects.filter(status ="p")
+            return Knowledge.objects.prefetch_related('articles').all()
+        return Knowledge.objects.prefetch_related('articles').filter(status ="p")
     
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)
